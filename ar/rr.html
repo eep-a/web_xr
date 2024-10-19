@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.7/aframe/build/aframe-ar.min.js"></script>
     <title>RR</title>
-</head>
-<body>
-    <h1>This is a test::::</h1>
-</body>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <!-- Marcador por patrón -->
+      <a-marker type="pattern" preset="custom" url="./pattern-ar.patt">
+        <!-- Pantalla donde se mostrará el video -->
+        <a-video src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" width="4" height="2" position="0 1 0"></a-video>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
