@@ -10,13 +10,14 @@
         <a-plane position="0 1 -10" width="10" height="20" rotation="-90 0" color="#CCC"></a-plane>
         
         <a-box id="caja" 
-        position="0 1.5 -20" 
-        color="red"
-        obb-collider></a-box>
+        position="0 1.5 -5" 
+        color="brown"
+        obb-collider ></a-box>
         <a-light type="ambient" position="0 0 0" color="#fff"></a-light>
         
         <a-entity oculus-touch-controls="hand: left"></a-entity>
-        <a-entity oculus-touch-controls="hand: right"><a-cursor></a-cursor></a-entity>
+        <a-entity oculus-touch-controls="hand: right" 
+        raycaster=" showLine: true; far: 100; lineColor: red; lineOpacity: 0.5"></a-entity>
 
         <a-camera id="player" obb-collider>
         </a-camera>
@@ -25,9 +26,33 @@
     <script>
 
         var caja = document.getElementById("caja");
-        caja.addEventListener("mouseenter", function(event){
+        
+        caja.addEventListener("raycaster-intersected", function(){
             this.setAttribute("color", "green");
         });
+
+        caja.addEventListener("raycaster-intersected-cleared", function(){
+            this.setAttribute("color", "brown");
+        });
+
+
+
+
+
+
+
+
+
+
+
+        /*var caja = document.getElementById("caja");
+        caja.addEventListener("raycaster-intersected", function(event){
+            this.setAttribute("color", "green");
+        });
+
+        caja.addEventListener("raycaster-intersected-cleared", function(event){
+            this.setAttribute("color", "brown");
+        });*/
 
 
     </script>
